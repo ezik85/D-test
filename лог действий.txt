@@ -1,0 +1,18 @@
+установил Centos7, выяснил что старая версия питона и ОС не подходит
+установил Centos8 
+установил git
+для установки модулей из requirements.txt поставил python3 и pip
+обновил pip до последней версии
+запустил app.py, он выдал оибку:
+ File "/root/Flaskex/scripts/forms.py", line 7, in LoginForm
+    username = StringField('Username:', validators=[validators.required(), validators.Length(min=1, max=30)])
+AttributeError: module 'wtforms.validators' has no attribute 'required'
+поменял validators.required() на validators.DataRequired() в forms.py
+после этого запуск прошел успешно, для возможности открыть страницу отключил файрвол
+установил Docker
+создал файл с именем Dockerfile в корне проекта
+собрал образ и запустил контейнер
+упаковал через docker-compose
+приложение не запустилось, выяснил что докер установился некорректно, ошибка:
+Failed to start docker.service: Unit not found.
+переустановил докер, заново собрал и упаковал, после этого запустил упакованное приложение через docker-compose
